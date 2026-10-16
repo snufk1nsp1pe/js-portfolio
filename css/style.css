@@ -1,0 +1,424 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+:root {
+    --bg-main: #fffdf7; /* Warm retro paper/beige */
+    --text-main: #111111; /* Soft black */
+    --accent: #ff3c00; /* Retro bright orange */
+
+    /* Vibrant Retro Palette */
+    --color-pink: #ff90e8;
+    --color-yellow: #ffc900;
+    --color-blue: #22d3ee;
+    --color-mint: #4ade80;
+    --color-lavender: #c4b5fd;
+
+    --border: 2px solid #111111;
+    --shadow: 6px 6px 0px #111111;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Space Mono", monospace;
+    color: var(--text-main);
+    background-color: var(--bg-main);
+    line-height: 1.6;
+    /* Subtle retro dot grid background */
+    background-image: radial-gradient(#d5d1cc 1px, transparent 1px);
+    background-size: 24px 24px;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.2;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    margin-bottom: 1rem;
+    background: var(--text-main);
+    color: var(--bg-main);
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border: var(--border);
+}
+
+h2 {
+    font-size: 2.5rem;
+    border-bottom: var(--border);
+    display: inline-block;
+    margin-bottom: 3rem;
+    padding-bottom: 0.5rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+    margin-top: 1.5rem;
+}
+
+p {
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+}
+
+a {
+    color: var(--text-main);
+    text-decoration: none;
+    position: relative;
+    font-weight: 700;
+}
+
+a:hover {
+    color: var(--accent);
+}
+
+/* Header */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: var(--bg-main);
+    border-bottom: var(--border);
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    background: var(--text-main);
+    color: var(--bg-main);
+    padding: 0.2rem 0.5rem;
+    z-index: 1002;
+    border: var(--border);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--accent);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1002;
+}
+
+.mobile-menu-btn span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: var(--text-main);
+    margin: 6px 0;
+    transition: 0.3s;
+}
+
+/* Hero */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 8rem 0 4rem;
+    background-color: var(--bg-main);
+}
+
+.hero-content {
+    max-width: 900px;
+}
+
+.hero-greeting {
+    font-size: 1.2rem;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.hero h1 {
+    font-size: 4.5rem;
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    margin-bottom: 1rem;
+    background: transparent;
+    color: var(--text-main);
+    display: block;
+    padding: 0;
+    border: none;
+    line-height: 1.1;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    border: none;
+    display: block;
+    margin-bottom: 2rem;
+    padding: 0;
+    color: var(--text-main);
+    line-height: 1.2;
+    text-transform: none;
+}
+
+.hero-description {
+    font-size: 1.25rem;
+    max-width: 700px;
+    margin-bottom: 3rem;
+    border-left: none;
+    padding-left: 0;
+    color: var(--text-main);
+    opacity: 0.9;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--accent);
+    color: var(--bg-main);
+    padding: 1rem 2.5rem;
+    border: var(--border);
+    box-shadow: var(--shadow);
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 4px 4px 0px var(--text-main);
+    background-color: var(--text-main);
+    color: var(--bg-main);
+}
+
+.btn-outline {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+}
+
+.btn-outline:hover {
+    background-color: var(--color-mint);
+    color: var(--text-main);
+}
+
+/* Sections */
+section {
+    padding: 6rem 0;
+    border-top: var(--border);
+    background-color: var(--bg-main);
+}
+
+.about {
+    background-color: var(--color-blue);
+}
+
+.projects {
+    background-color: var(--bg-main);
+}
+
+.contact {
+    background-color: var(--color-pink);
+}
+
+.about p {
+    max-width: 800px;
+}
+
+/* Projects */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+}
+
+.project-card {
+    background: var(--bg-main);
+    border: var(--border);
+    box-shadow: var(--shadow);
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Coloring the individual project cards for more retro vibe */
+.project-card:nth-child(1) {
+    background-color: var(--color-yellow);
+}
+.project-card:nth-child(2) {
+    background-color: var(--color-mint);
+}
+.project-card:nth-child(3) {
+    background-color: var(--color-lavender);
+}
+.project-card:nth-child(4) {
+    background-color: var(--color-pink);
+}
+
+.project-card:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 10px 10px 0px var(--text-main);
+}
+
+.project-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-bottom: var(--border);
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image {
+    /* Slight zoom effect instead of grayscale */
+    transform: scale(1.02);
+}
+
+.project-card h3 {
+    padding: 1.5rem 1.5rem 0.5rem;
+    margin: 0;
+}
+
+.project-card p {
+    padding: 0 1.5rem 1.5rem;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Contact */
+.contact-links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.contact-links a {
+    font-size: 1.2rem;
+    border: var(--border);
+    padding: 0.5rem 1.5rem;
+    box-shadow: 4px 4px 0px var(--text-main);
+    background: var(--bg-main);
+    transition: all 0.2s ease;
+}
+
+.contact-links a:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px var(--text-main);
+    background: var(--accent);
+    color: var(--text-main);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: var(--border);
+    background-color: var(--text-main);
+    color: var(--bg-main);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+    }
+    .hero h2 {
+        font-size: 1.8rem;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 100%;
+        background-color: var(--bg-main);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: right 0.3s ease;
+        border-left: var(--border);
+        z-index: 1001;
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .mobile-menu-btn.active span:nth-child(1) {
+        transform: rotate(-45deg) translate(-8px, 8px);
+    }
+    .mobile-menu-btn.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .mobile-menu-btn.active span:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -5px);
+    }
+}
